@@ -34,7 +34,7 @@ const TimelineSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 md:py-32 bg-night-gradient" ref={ref}>
+    <section id="itineraire" className="py-24 md:py-32 bg-night-gradient" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-16"

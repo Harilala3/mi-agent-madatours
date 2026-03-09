@@ -61,7 +61,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          Découvrez l'île continent
+          Découvrez la grande île de l'océan Indien
         </motion.p>
         <motion.h1
           className="font-display text-[clamp(3rem,12vw,10rem)] leading-none text-gradient-gold font-bold"

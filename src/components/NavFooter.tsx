@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { MapPin, Mail, Phone, Shield } from "lucide-react";
 
-const Navbar = () => {
+const Navbar = ({ onContactClick }: { onContactClick?: () => void }) => {
   return (
     <motion.nav
       className="fixed top-0 left-0 right-0 z-40 glass-card"
@@ -30,12 +30,12 @@ const Navbar = () => {
             </a>
           ))}
         </div>
-        <a
-          href="#contact"
-          className="glass-card px-5 py-2 rounded-full font-body text-xs text-primary uppercase tracking-wider hover:bg-primary/10 transition-colors"
+        <button
+          onClick={onContactClick}
+          className="glass-card px-5 py-2 rounded-full font-body text-xs text-primary uppercase tracking-wider hover:bg-primary/10 transition-colors cursor-pointer"
         >
           Contact
-        </a>
+        </button>
       </div>
     </motion.nav>
   );
@@ -59,7 +59,7 @@ const Footer = () => (
             {[
               { icon: MapPin, text: "Antananarivo, Madagascar" },
               { icon: Mail, text: "lalaharilalarak@gmail.com", href: "mailto:lalaharilalarak@gmail.com" },
-              { icon: Phone, text: "+261 34 546 9278", href: "tel:+261345469278" },
+              { icon: Phone, text: "+261 34 54 692 78", href: "tel:+261345469278" },
               { icon: Shield, text: "Guide certifié & assuré" },
             ].map((item) => (
               <div key={item.text} className="flex items-center gap-3 text-muted-foreground text-sm font-body">
@@ -92,7 +92,7 @@ const Footer = () => (
       </div>
       <div className="mt-12 pt-6 border-t border-border text-center">
         <p className="text-muted-foreground text-xs font-body">
-          © 2026 Mi-Agent-MadaTours — Tous droits réservés • Mora Mora 🌿
+          © 2026 Mi-Agent-MadaTours • Tous droits réservés 🌿
         </p>
       </div>
     </div>

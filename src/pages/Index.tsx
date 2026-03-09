@@ -1,13 +1,34 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useCallback } from "react";
+import Preloader from "@/components/Preloader";
+import HeroSection from "@/components/HeroSection";
+import BiodiversitySection from "@/components/BiodiversitySection";
+import BentoDestinations from "@/components/BentoDestinations";
+import TimelineSection from "@/components/TimelineSection";
+import FloatingContact from "@/components/FloatingContact";
+import { Navbar, Footer } from "@/components/NavFooter";
 
 const Index = () => {
+  const [loading, setLoading] = useState(true);
+
+  const handleComplete = useCallback(() => {
+    setLoading(false);
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <>
+      {loading && <Preloader onComplete={handleComplete} />}
+      <div className={loading ? "opacity-0" : "opacity-100 transition-opacity duration-500"}>
+        <Navbar />
+        <main>
+          <HeroSection />
+          <BiodiversitySection />
+          <BentoDestinations />
+          <TimelineSection />
+        </main>
+        <Footer />
+        <FloatingContact />
       </div>
-    </div>
+    </>
   );
 };
 

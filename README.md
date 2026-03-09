@@ -1,73 +1,77 @@
-# Welcome to your Lovable project
+# Mi-Agent-Voyage
 
-## Project info
+Site touristique pour découvrir Madagascar avec Mi-Agent-MadaTours.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Présentation
 
-## How can I edit this code?
+Mi-Agent-Voyage est un site web de présentation des services touristiques de Mi-Agent-MadaTours, votre guide de confiance pour explorer Madagascar. Le site présente les destinations, les régions, les itinéraires et l'expertise locale.
 
-There are several ways of editing your application.
+## Technologies
 
-**Use Lovable**
+Ce projet est développé avec :
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- **Vite** - Build tool moderne et rapide
+- **TypeScript** - Langage typé pour du code plus robuste
+- **React** - Bibliothèque JavaScript pour les interfaces utilisateur
+- **shadcn/ui** - Composants UI modernes et accessibles
+- **Tailwind CSS** - Framework CSS utilitaire
+- **Framer Motion** - Animations fluides
 
-Changes made via Lovable will be committed automatically to this repo.
+## Installation
 
-**Use your preferred IDE**
+```bash
+# Installer les dépendances
+npm install
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Démarrer le serveur de développement
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Déploiement
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Vous pouvez déployer ce projet sur n'importe quelle plateforme d'hébergement statique (Vercel, Netlify, GitHub Pages, etc.).
 
-**Use GitHub Codespaces**
+```bash
+# Builder pour la production
+npm run build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Prévisualiser le build de production
+npm run preview
+```
 
-## What technologies are used for this project?
+## Structure du projet
 
-This project is built with:
+```
+mi-agent-madatours/
+├── public/              # Fichiers statiques
+├── src/
+│   ├── assets/         # Images et médias
+│   ├── components/     # Composants React
+│   │   └── ui/        # Composants shadcn/ui
+│   ├── hooks/         # Hooks React personnalisés
+│   ├── lib/           # Utilitaires
+│   └── pages/         # Pages de l'application
+├── index.html          # Point d'entrée HTML
+└── package.json        # Dépendances du projet
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Fonctionnalités
 
-## How can I deploy this project?
+- 🗺️ Présentation des destinations et régions de Madagascar
+- 🛤️ Itinéraires détaillés (Carnet de Route)
+- 💼 Section expertise et services
+- 📧 Formulaire de contact par email
+- 📱 Design responsive (mobile-first)
+- ✨ Animations fluides
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## Contact
 
-## Can I connect a custom domain to my Lovable project?
+Pour toute question ou demande de devis :
 
-Yes, you can!
+- **Email** : lalaharilalarak@gmail.com
+- **Téléphone** : +261 34 54 692 78
+- **Adresse** : Antananarivo, Madagascar
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+© 2026 Mi-Agent-MadaTours - Tous droits réservés 🌿

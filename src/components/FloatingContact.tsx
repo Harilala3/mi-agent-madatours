@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, Mail, Phone, X } from "lucide-react";
 
 const contactOptions = [
-  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/261340000000", color: "bg-tropical" },
-  { icon: Mail, label: "Email", href: "mailto:contact@madagascar-tours.mg", color: "bg-ocre" },
-  { icon: Phone, label: "Appeler", href: "tel:+261340000000", color: "bg-primary" },
+  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/261345469278?text=Bonjour%2C%20je%20souhaite%20organiser%20un%20voyage%20à%20Madagascar", color: "bg-tropical" },
+  { icon: Mail, label: "Email", href: "mailto:lalaharilalarak@gmail.com", color: "bg-ocre" },
+  { icon: Phone, label: "Appeler", href: "tel:+261345469278", color: "bg-primary" },
 ];
 
 const FloatingContact = () => {
@@ -21,16 +21,11 @@ const FloatingContact = () => {
               href={opt.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-3 glass-card rounded-full px-4 py-2.5 hover:bg-secondary/50 transition-colors`}
+              className="flex items-center gap-3 glass-card rounded-full px-4 py-2.5 hover:bg-secondary/50 transition-colors"
               initial={{ opacity: 0, y: 20, scale: 0.8 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.8 }}
-              transition={{
-                type: "spring",
-                stiffness: 400,
-                damping: 15,
-                delay: i * 0.08,
-              }}
+              transition={{ type: "spring", stiffness: 400, damping: 15, delay: i * 0.08 }}
             >
               <opt.icon className="w-4 h-4 text-primary" />
               <span className="text-sm font-body text-foreground">{opt.label}</span>

@@ -3,7 +3,9 @@ import Preloader from "@/components/Preloader";
 import HeroSection from "@/components/HeroSection";
 import BiodiversitySection from "@/components/BiodiversitySection";
 import BentoDestinations from "@/components/BentoDestinations";
+import RegionsSection from "@/components/RegionsSection";
 import TimelineSection from "@/components/TimelineSection";
+import ExperienceSection from "@/components/ExperienceSection";
 import FloatingContact from "@/components/FloatingContact";
 import { Navbar, Footer } from "@/components/NavFooter";
 
@@ -23,7 +25,9 @@ const Index = () => {
           <HeroSection />
           <BiodiversitySection />
           <BentoDestinations />
+          <RegionsSection />
           <TimelineSection />
+          <ExperienceSection />
         </main>
         <Footer />
         <FloatingContact />

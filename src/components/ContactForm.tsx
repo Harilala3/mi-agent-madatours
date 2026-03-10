@@ -2,7 +2,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Send, Loader2, Check } from "lucide-react";
+import { Send, Loader2, Check, AlertCircle } from "lucide-react";
+import emailjs from "@emailjs/browser";
+
+// Configuration EmailJS - Remplacez ces valeurs par vos identifiants EmailJS
+// Créez un compte sur https://www.emailjs.com/
+const EMAILJS_SERVICE_ID = "service_d1p2t0d";
+const EMAILJS_TEMPLATE_ID = "template_3s6rm0y";
+const EMAILJS_PUBLIC_KEY = "DA4fOsdNlQAcfLe0q";
 
 interface ContactFormProps {
   open: boolean;
@@ -18,34 +25,43 @@ const ContactForm = ({ open, onOpenChange }: ContactFormProps) => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
 
-    // Simulate form submission - in production, you'd use a backend service
-    // For email, you can use mailto: with pre-filled data or a service like Formspree
-    const mailtoLink = `mailto:lalaharilalarak@gmail.com?subject=${encodeURIComponent(
-      formData.subject || "Contact depuis Mi-Agent-MadaTours"
-    )}&body=${encodeURIComponent(
-      `Nom: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    )}`;
+    try {
+      // Envoyer l'email via EmailJS
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject || "Contact depuis Mi-Agent-MadaTours",
+        message: formData.message,
+      };
 
-    // Small delay to show loading state
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    // Open email client
-    window.location.href = mailtoLink;
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      onOpenChange(false);
-    }, 3000);
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        onOpenChange(false);
+      }, 3000);
+    } catch (err) {
+      console.error("Erreur lors de l'envoi de l'email:", err);
+      setError("L'envoi du message a échoué. Veuillez réessayer ou nous contacter directement par email.");
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -179,6 +195,13 @@ const ContactForm = ({ open, onOpenChange }: ContactFormProps) => {
                   />
                 </div>
 
+                {error && (
+                  <div className="flex items-center gap-2 p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
+                    <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                    <span>{error}</span>
+                  </div>
+                )}
+
                 <Button
                   type="submit"
                   disabled={isSubmitting}
@@ -198,7 +221,7 @@ const ContactForm = ({ open, onOpenChange }: ContactFormProps) => {
                 </Button>
 
                 <p className="text-xs text-muted-foreground text-center font-body">
-                  Envoi direct via votre client email
+                  Réponse garantie sous 24h
                 </p>
               </motion.form>
             )}
